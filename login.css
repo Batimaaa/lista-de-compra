@@ -32,7 +32,7 @@ body {
 
 .container {
     background-color: var(--cor-secundaria-1);
-    padding: clamp (2rem, 5vw, 3rem);
+    padding: clamp(2rem, 5vw, 3rem);
     border-radius: 12px;
     width: 100%;
     max-width: 400px;
