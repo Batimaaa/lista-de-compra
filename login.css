@@ -41,7 +41,7 @@ body {
 }
 
 .titulo {
-    font-size: clamp (1.5rem, 2vw + 1rem, 2rem);
+    font-size: clamp(1.5rem, 2vw + 1rem, 2rem);
     color: var(--cor-secundaria-1);
     margin-bottom: 1.5rem;
     font-weight: 500;
