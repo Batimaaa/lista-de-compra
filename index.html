@@ -1,22 +1,142 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Lista de Compras Inteligente</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <h2>Minha de Compras</h2>
-   
-    <button onclick="logout()">Sair</button>
+    <div class="app-container">
+        <header class="app-header">
+            <div class="header-content">
+                <div class="logo-section">
+                    <i class="fas fa-shopping-cart logo-icon"></i>
+                    <h1>Minha Lista de Compras</h1>
+                </div>
+                <div class="user-section">
+                    <div class="user-info">
+                        <i class="fas fa-user-circle user-icon"></i>
+                        <span class="user-name">Usuário</span>
+                    </div>
+                    <button id="logout-btn" class="logout-btn">
+                        <i class="fas fa-sign-out-alt"></i>
+                        <span>Sair</span>
+                    </button>
+                </div>
+            </div>
+        </header>
 
-    <ul id="lista"></ul>
+        <main class="main-content">
+            <div class="stats-container">
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-list-check"></i>
+                    </div>
+                    <div class="stat-info">
+                        <span class="stat-value" id="total-items">0</span>
+                        <span class="stat-label">Itens Totais</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-cart-shopping"></i>
+                    </div>
+                    <div class="stat-info">
+                        <span class="stat-value" id="pending-items">0</span>
+                        <span class="stat-label">A Comprar</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <div class="stat-info">
+                        <span class="stat-value" id="completed-items">0</span>
+                        <span class="stat-label">Comprados</span>
+                    </div>
+                </div>
+            </div>
 
-    <input type="text" id="item" placeholder="novo item">
-    <button onclick="adicionarItem()">Adicionar</button>
+            <div class="content-wrapper">
+                <div class="input-section">
+                    <div class="input-container">
+                        <div class="category-selector">
+                            <select id="category-select">
+                                <option value="alimentos">Alimentos</option>
+                                <option value="limpeza">Limpeza</option>
+                                <option value="higiene">Higiene</option>
+                                <option value="hortifruti">Hortifruti</option>
+                                <option value="outros">Outros</option>
+                            </select>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="input-group">
+                            <input type="text" id="item-input" placeholder="Adicione um novo item à lista...">
+                            <button id="add-btn" class="add-btn">
+                                <i class="fas fa-plus"></i>
+                                Adicionar
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="quick-categories">
+                        <span class="quick-label">Categorias rápidas:</span>
+                        <div class="category-buttons">
+                            <button class="category-btn" data-category="alimentos">
+                                <i class="fas fa-utensils"></i> Alimentos
+                            </button>
+                            <button class="category-btn" data-category="limpeza">
+                                <i class="fas fa-broom"></i> Limpeza
+                            </button>
+                            <button class="category-btn" data-category="hortifruti">
+                                <i class="fas fa-apple-alt"></i> Hortifruti
+                            </button>
+                        </div>
+                    </div>
+                </div>
 
-    <script type="module" src="app.js"></script>
+                <div class="list-section">
+                    <div class="list-header">
+                        <h2>Itens da Lista</h2>
+                        <div class="list-controls">
+                            <button id="filter-all" class="filter-btn active">Todos</button>
+                            <button id="filter-pending" class="filter-btn">A Comprar</button>
+                            <button id="filter-completed" class="filter-btn">Comprados</button>
+                        </div>
+                    </div>
 
-    
+                    <div class="list-container">
+                        <ul id="shopping-list" class="shopping-list">
+                            <!-- Itens serão adicionados dinamicamente aqui -->
+                            <li class="list-placeholder">
+                                <i class="fas fa-clipboard-list"></i>
+                                <p>Sua lista de compras está vazia</p>
+                                <p class="placeholder-subtitle">Adicione itens usando o campo acima</p>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="list-actions">
+                        <button id="clear-completed" class="action-btn">
+                            <i class="fas fa-trash"></i> Limpar Comprados
+                        </button>
+                        <button id="select-all" class="action-btn">
+                            <i class="fas fa-check-double"></i> Marcar Todos
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="app-footer">
+            <p>Lista de Compras Inteligente • Organize suas compras de forma fácil</p>
+            <p class="footer-note"><i class="fas fa-mobile-alt"></i> Totalmente responsivo para todos os dispositivos</p>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
 </body>
 </html>
